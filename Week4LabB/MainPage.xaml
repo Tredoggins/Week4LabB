@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Week4LabB.MainPage">
+
+    <StackLayout Margin="20,35,20,25">
+        <Label Text="Welcome to Xamarin.Forms!"
+               TextColor="Blue"
+               FontAttributes="Italic"
+               FontSize="22"
+               TextDecorations="Underline"
+               HorizontalOptions="Center" 
+               x:Name="Label"/>
+        <Button Text="Click me"
+                Clicked="Button_Clicked"
+                TextColor="Blue"
+                BackgroundColor="Aqua"
+                BorderColor="Red"
+                BorderWidth="5"
+                CornerRadius="5"
+                WidthRequest="150"
+                HeightRequest="75" />
+        <Label Text="ROTATION"
+               BindingContext="{x:Reference Name=slider}"
+               Rotation="{Binding Path=Value}"
+               FontAttributes="Bold"
+               FontSize="Large"
+               HorizontalOptions="Center"
+               VerticalOptions="CenterAndExpand" />
+
+        <Slider x:Name="slider"
+                Maximum="360"
+                VerticalOptions="CenterAndExpand" />
+
+        <Label BindingContext="{x:Reference slider}"
+               Text="{Binding Value, StringFormat='The angle is {0:F0} degrees'}"
+               FontAttributes="Bold"
+               FontSize="Large"
+               HorizontalOptions="Center"
+               VerticalOptions="CenterAndExpand" />
+        <Entry Placeholder="Enter Text"
+               MaxLength="15"
+               IsSpellCheckEnabled="false"
+               IsTextPredictionEnabled="false"
+               Completed="Entry_Completed"
+               TextChanged="Entry_TextChanged"/>
+    </StackLayout>
+
+</ContentPage>
